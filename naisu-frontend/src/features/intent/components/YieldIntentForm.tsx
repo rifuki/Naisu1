@@ -64,11 +64,10 @@ export function YieldIntentForm({ onIntentCreated }: YieldIntentFormProps) {
 
   const handleSubmit = async () => {
     if (!amount || !isConnected) return;
-    
-    // Validate minimum amount (1 SUI for staking)
+
     const amountNum = parseFloat(amount);
-    if (amountNum < 1) {
-      alert('Minimum amount is 1 SUI (staking requirement)');
+    if (amountNum <= 0) {
+      alert('Please enter a valid amount');
       return;
     }
 

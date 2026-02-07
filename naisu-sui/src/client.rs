@@ -6,9 +6,19 @@ use serde::{Deserialize, Serialize};
 use crate::SuiConfig;
 
 /// Sui RPC client
+#[derive(Clone)]
 pub struct SuiClient {
     config: SuiConfig,
     client: Client,
+}
+
+impl std::fmt::Debug for SuiClient {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("SuiClient")
+            .field("config", &self.config)
+            .field("client", &"<reqwest::Client>")
+            .finish()
+    }
 }
 
 impl SuiClient {
@@ -20,7 +30,7 @@ impl SuiClient {
     }
 
     /// Make a JSON-RPC call
-    async fn rpc_call<T: for<'de> Deserialize<'de>>(
+    pub async fn rpc_call<T: for<'de> Deserialize<'de>>(
         &self,
         method: &str,
         params: serde_json::Value,
