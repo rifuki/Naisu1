@@ -9,9 +9,9 @@ import { useState } from 'react';
 import { useSignAndExecuteTransaction, useCurrentAccount, useSuiClient } from '@mysten/dapp-kit';
 import { Transaction } from '@mysten/sui/transactions';
 import { bcs } from '@mysten/sui/bcs';
-import { Card, CardContent } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { PoolSelector } from '@/components/cetus/PoolSelector';
 import { CetusPoolInfo } from '@/hooks/sui/useQueryCetusPools';
 import { useQuerySuiTokenBalance } from '@/hooks/sui/useQuerySuiTokenBalance';
@@ -238,9 +238,8 @@ function SwapPage() {
                       className="pr-28 text-2xl h-16 font-medium"
                     />
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2 bg-white/[0.05] px-3 py-2 rounded-lg">
-                      <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white ${
-                        fromToken.symbol === 'SUI' ? 'bg-blue-500' : 'bg-green-500'
-                      }`}>
+                      <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white ${fromToken.symbol === 'SUI' ? 'bg-blue-500' : 'bg-green-500'
+                        }`}>
                         {fromToken.symbol[0]}
                       </div>
                       <span className="font-semibold text-white">{fromToken.symbol}</span>
@@ -277,9 +276,8 @@ function SwapPage() {
                         {estimatedOutput}
                       </span>
                       <div className="flex items-center gap-2 bg-white/[0.05] px-3 py-2 rounded-lg">
-                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white ${
-                          toToken.symbol === 'SUI' ? 'bg-blue-500' : 'bg-green-500'
-                        }`}>
+                        <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white ${toToken.symbol === 'SUI' ? 'bg-blue-500' : 'bg-green-500'
+                          }`}>
                           {toToken.symbol[0]}
                         </div>
                         <span className="font-semibold text-white">{toToken.symbol}</span>

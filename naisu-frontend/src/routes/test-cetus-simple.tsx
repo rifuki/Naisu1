@@ -12,9 +12,9 @@ import {
 } from "@mysten/dapp-kit";
 import { Transaction } from "@mysten/sui/transactions";
 import { useState } from "react";
-import { Button } from "@/components/ui/Button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
-import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { Loader2 } from "lucide-react";
 // import { useNetworkConfig } from "@/hooks/useNetworkConfig";
 // import { useQueryClient } from "@tanstack/react-query";
@@ -178,8 +178,8 @@ function SimpleTestPage() {
                     entry.includes("✅")
                       ? "text-green-400"
                       : entry.includes("❌")
-                      ? "text-red-400"
-                      : ""
+                        ? "text-red-400"
+                        : ""
                   }
                 >
                   {entry}
