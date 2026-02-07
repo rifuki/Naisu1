@@ -1,7 +1,7 @@
 {
   "name": "naisu-frontend",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@cetusprotocol/cetus-sui-clmm-sdk": "^5.4.0",
     "@mysten/dapp-kit": "^0.14.0",
     "@mysten/sui": "^1.0.0",
     "@radix-ui/react-dialog": "^1.1.0",
@@ -28,6 +29,7 @@
     "radix-ui": "^1.4.3",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
+    "react-hot-toast": "^2.6.0",
     "tailwind-merge": "^3.4.0",
     "viem": "^2.15.0",
     "wagmi": "^2.10.0"

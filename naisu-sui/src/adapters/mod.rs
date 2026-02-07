@@ -19,9 +19,11 @@
 //! }
 //! ```
 
+pub mod cetus;
 pub mod navi;
 pub mod scallop;
 
+pub use cetus::{CetusAdapter, CetusError, CetusPool};
 pub use navi::{NaviAdapter, YieldOpportunity as NaviYield};
 pub use scallop::{ScallopAdapter, YieldOpportunity as ScallopYield};
 

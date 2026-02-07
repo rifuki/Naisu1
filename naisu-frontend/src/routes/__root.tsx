@@ -10,6 +10,14 @@ import { motion } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 import { WalletConnect } from '@/features/wallet';
 import { NetworkSwitcher } from '@/components/NetworkSwitcher';
+import { Toaster } from 'react-hot-toast';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown, Beaker } from "lucide-react";
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -44,9 +52,73 @@ function RootComponent() {
 
           {/* Nav */}
           <nav className="hidden items-center gap-6 md:flex">
-            <a href="/" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Swap</a>
-            <a href="#" className="text-sm font-medium text-white/35 hover:text-white/60 transition-colors">Positions</a>
-            <a href="#" className="text-sm font-medium text-white/35 hover:text-white/60 transition-colors">Docs</a>
+            <a href="/" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Intent</a>
+            <a href="/swap" className="text-sm font-medium text-indigo-400/70 hover:text-indigo-400 transition-colors">Swap</a>
+            <a href="/pools" className="text-sm font-medium text-white/50 hover:text-white/70 transition-colors">Pools</a>
+            <a href="/zap" className="text-sm font-medium text-purple-400/70 hover:text-purple-400 transition-colors">Zap ⚡</a>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-white/35 hover:text-white/50 transition-colors outline-none data-[state=open]:text-white/70">
+                Debug
+                <ChevronDown className="h-3 w-3 opacity-50" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem asChild>
+                  <a href="/test-cetus" className="w-full cursor-pointer flex items-center gap-2">
+                    <Beaker className="h-4 w-4 text-indigo-400" />
+                    <span>Test Dashboard</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/test-cetus-simple" className="w-full cursor-pointer flex items-center gap-2">
+                    <div className="h-4 w-4 flex items-center justify-center rounded-full bg-white/10 text-[10px]">1</div>
+                    <span>Simple Open</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/test-cetus-integrate" className="w-full cursor-pointer flex items-center gap-2">
+                    <div className="h-4 w-4 flex items-center justify-center rounded-full bg-white/10 text-[10px]">2</div>
+                    <span>Full Integration</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/test-open-position" className="w-full cursor-pointer flex items-center gap-2">
+                    <div className="h-4 w-4 flex items-center justify-center rounded-full bg-emerald-500/20 text-[10px]">✨</div>
+                    <span>Open Position (Clean)</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/test-close-position" className="w-full cursor-pointer flex items-center gap-2">
+                    <div className="h-4 w-4 flex items-center justify-center rounded-full bg-red-500/20 text-[10px]">🗑️</div>
+                    <span>Close Position</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/test-swap" className="w-full cursor-pointer flex items-center gap-2">
+                    <div className="h-4 w-4 flex items-center justify-center rounded-full bg-blue-500/20 text-[10px]">🔄</div>
+                    <span>Swap (SUI↔USDC)</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/test-claim-fees" className="w-full cursor-pointer flex items-center gap-2">
+                    <div className="h-4 w-4 flex items-center justify-center rounded-full bg-amber-500/20 text-[10px]">💰</div>
+                    <span>Claim Fees</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/smart-swap" className="w-full cursor-pointer flex items-center gap-2">
+                    <div className="h-4 w-4 flex items-center justify-center rounded-full bg-pink-500/20 text-[10px]">🧠</div>
+                    <span>Smart Swap</span>
+                  </a>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a href="/test-create-pool" className="w-full cursor-pointer flex items-center gap-2">
+                    <div className="h-4 w-4 flex items-center justify-center rounded-full bg-cyan-500/20 text-[10px]">🏭</div>
+                    <span>Create Pool</span>
+                  </a>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -73,6 +145,15 @@ function RootComponent() {
       </footer>
 
       {import.meta.env.DEV && <TanStackRouterDevtools />}
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          style: {
+            background: '#333',
+            color: '#fff',
+          },
+        }}
+      />
     </div>
   );
 }
